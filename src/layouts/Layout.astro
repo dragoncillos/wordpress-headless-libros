@@ -1,22 +1,85 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+import '@fontsource-variable/inter'
+import '../styles/global.css'
+interface Props {
+  title: string
+  description?: string
+}
+const { title, description = 'Tu sitio we de libros de La Pedriza' } =
+  Astro.props
+---
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body class="bg-gray-50 text-gray-900">
+    <header class="bg-sky-900 text-white">
+      <nav class="container mx-auto px-4 py-6">
+        <div class="flex items-center justify-between">
+          <a href="/" class="text-2xl font-bold">La Pedriza libros</a>
+          <ul class="flex space-x-6">
+            <li><a href="/">Inicio</a></li>
+            <li>
+              <a href="/noticias">Noticias</a>
+            </li>
+            <li>
+              <a href="/contacto">Contacto</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="bg-sky-950 text-white">
+      <div class="container mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8">
+          <div>
+            <h3 class="text-xl font-bold mb-4">La Pedriza libros</h3>
+            <p class="text-gray-300">
+              Tu sitio web de libros de La Pedriza y la Sierra de Guadarrama.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Enlaces</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="https://www.julioserrano.es/libro-pedriza/"
+                  >Julio Serrano</a
+                >
+              </li>
+              <li><a href="https://alfredoares.com/">Alfredo Ares</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Síguenos en Instagram</h3>
+            <div class="Flex space-x-4">
+              <a
+                href="http://instagram.com/fotojulioserrano"
+                class="text-gray-300">fotojulioserrano</a
+              >
+              <a
+                href="https://www.instagram.com/alfred_snap/"
+                class="text-gray-300">alfred_snap</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="pt-8 border-t border-gray-600 text-center text-gray-300">
+          <p>
+            {new Date().getFullYear()} - La Pedriza libros 📚 - Creado con <a
+              href="https://astro.build/">Astro</a
+            > 🪐
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

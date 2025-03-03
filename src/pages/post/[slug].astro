@@ -1,0 +1,30 @@
+---
+import type { GetStaticPaths } from 'astro'
+import Layout from '../../layouts/Layout.astro'
+import { getPostInfo, getAllPostsSlugs } from '../../lib/wp'
+
+interface Params {
+  slug: string
+}
+
+const { slug } = Astro.params as Params
+if (!slug) return Astro.redirect('/404')
+
+export async function getStaticPaths() {
+  const slug = await getAllPostsSlugs()
+  // console.log(slug)
+  return slug.map((slug) => ({ params: { slug } }))
+}
+
+// Si se usa getStaticPaths no se usa el modo servidor
+//export const prerender = false
+
+const { title, content, seo } = await getPostInfo(slug)
+---
+
+<Layout title={title} description={seo.description}>
+  <article class="prose max-w-2xl mx-auto my-8">
+    <h1>{title}</h1>
+    <div set:html={content} />
+  </article>
+</Layout>

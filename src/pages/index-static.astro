@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro'
+import CardInfo from '../components/CardInfoStatic.astro'
+
+const featuredPosts = [
+  {
+    title: 'La Pedriza. Sierra de Guadarrama',
+    excerpt:
+      'Un libro con 88 fotografías a página completa de la belleza natural de La Pedriza. Un lugar sin igual en España, un lugar singular en el mundo. 10 años explorando y fotografiando su luz, sus formas, sus habitantes.',
+    featuredImage:
+      'https://www.libreriadesnivel.com/media/img/portadas/9788409572540_E6nb7Hb.jpg?w=800&auto=format&fit=crop',
+    date: 'Marzo de 2024',
+    slug: 'la-pedriza-julio-serrano'
+  },
+  {
+    title: 'La Pedriza. Guía fotográfica y reflexiones de un montañero errante',
+    excerpt:
+      'Este libro recoge algunas de sus infinitas posibilidades en una triple lectura: describe rutas para los montañeros, facilita recursos técnicos y de composición para fotógrafos y cristaliza hermosas imágenes para deleite de todos los aficionados a este increíble paraje madrileño.',
+    featuredImage:
+      'https://www.libreriadesnivel.com/media/img/portadas/9788419435187.jpg?w=800&auto=format&fit=crop',
+    date: 'Octubre de 2023',
+    slug: 'la-pedriza-alfredo-ares'
+  },
+  {
+    title: 'La Pedriza. Geología y escalada',
+    excerpt:
+      'Necesario para todos aquellos que les gusta perderse en La Pedriza de Manzanares el Real, escalar por su infinito granito, asombrarse por sus formas imposibles y sobretodo preguntarse: porqué están y como han llegado hasta ahí las rocas que le rodean.',
+    featuredImage:
+      'https://www.libreriadesnivel.com/media/img/portadas/9788494996436.jpg?w=800&auto=format&fit=crop',
+    date: 'Septiembre de 2019',
+    slug: 'la-pedriza-manuel-garcia'
+  }
+]
+---
+
+<Layout title="Libros de La Pedriza">
+  <section class="bg-gray-900 text-white py-20">
+    <div class="container mx-auto px-4 text-center">
+      <code>Página estática</code>
+      <h1 class="text-5xl font-bold mb-6">
+        ¡Bienvenido a la web de libros de La Pedriza!
+      </h1>
+      <p class="text-xl max-w-2xl mx-auto">
+        Selección de los mejores libros publicados sobre La Pedriza y la Sierra
+        de Guadarrama
+      </p>
+    </div>
+  </section>
+  <section class="container mx-auto px-4 py-12">
+    <h2 class="text-3xl font-bold mb-8 text-center">
+      Últimos libros seleccionados
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {featuredPosts.map((post) => <CardInfo {...post} />)}
+    </div>
+  </section>
+</Layout>
