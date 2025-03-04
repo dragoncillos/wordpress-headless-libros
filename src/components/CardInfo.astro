@@ -9,6 +9,11 @@ interface Props {
 }
 
 const { title, excerpt, content, date, slug, featuredImage } = Astro.props
+
+const formattedDate = new Date(date).toLocaleDateString('es-ES', {
+  month: 'long',
+  year: 'numeric'
+})
 ---
 
 <article
@@ -19,7 +24,7 @@ const { title, excerpt, content, date, slug, featuredImage } = Astro.props
     <h2 class="text-xl font-bold mb-2">
       <a href={`/post/${slug}`}>{title}</a>
     </h2>
-    <p class="text-gray-600 text-sm mb-4">{date}</p>
+    <p class="text-gray-600 text-sm mb-4">{formattedDate}</p>
     <p class="text-gray-700" set:html={excerpt} />
   </div>
 </article>

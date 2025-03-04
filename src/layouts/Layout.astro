@@ -15,10 +15,11 @@ const { title, description = 'Tu sitio we de libros de La Pedriza' } =
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
+    <meta name="robots" content="noindex, nofollow" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
   </head>
-  <body class="bg-gray-50 text-gray-900">
+  <body class="text-base md:text-lg bg-gray-50 text-gray-900">
     <header class="bg-sky-900 text-white">
       <nav class="container mx-auto px-4 py-6">
         <div class="flex items-center justify-between">
@@ -26,10 +27,7 @@ const { title, description = 'Tu sitio we de libros de La Pedriza' } =
           <ul class="flex space-x-6">
             <li><a href="/">Inicio</a></li>
             <li>
-              <a href="/noticias">Noticias</a>
-            </li>
-            <li>
-              <a href="/contacto">Contacto</a>
+              <a href="https://www.dragoncillos.com">Sobre mí</a>
             </li>
           </ul>
         </div>
@@ -74,9 +72,10 @@ const { title, description = 'Tu sitio we de libros de La Pedriza' } =
         </div>
         <div class="pt-8 border-t border-gray-600 text-center text-gray-300">
           <p>
-            {new Date().getFullYear()} - La Pedriza libros 📚 - Creado con <a
-              href="https://astro.build/">Astro</a
-            > 🪐
+            {new Date().getFullYear()} - <a href="/">La Pedriza libros</a> 📚
+          </p>
+          <p>
+            <a href="https://astro.build/">Creado con Astro</a> 🪐
           </p>
         </div>
       </div>

@@ -1,2 +1,7 @@
 @import "tailwindcss";
-@plugin "@tailwindcss/typography"
+@layer base {
+  a {
+    @apply underline;
+  }
+}
+@plugin "@tailwindcss/typography";
