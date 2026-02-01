@@ -1,12 +1,12 @@
 ---
-import '@fontsource-variable/inter'
-import '../styles/global.css'
+import '@fontsource-variable/inter';
+import '../styles/global.css';
 interface Props {
-  title: string
-  description?: string
+  title: string;
+  description?: string;
 }
 const { title, description = 'Tu sitio we de libros de La Pedriza' } =
-  Astro.props
+  Astro.props;
 ---
 
 <!doctype html>
@@ -41,13 +41,16 @@ const { title, description = 'Tu sitio we de libros de La Pedriza' } =
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8">
           <div>
             <h3 class="text-xl font-bold mb-4">La Pedriza libros</h3>
-            <p class="text-gray-300">
-              Tu sitio web de libros de La Pedriza y la Sierra de Guadarrama.
-            </p>
+            <p class="text-gray-300">Tu sitio web de libros de La Pedriza</p>
           </div>
           <div>
             <h3 class="text-xl font-bold mb-4">Enlaces</h3>
             <ul class="space-y-2">
+              <li>
+                <a href="https://www.trekkingfotografico.com/mi-libro"
+                  >Dani Sanz</a
+                >
+              </li>
               <li>
                 <a href="https://www.julioserrano.es/libro-pedriza/"
                   >Julio Serrano</a
@@ -59,6 +62,10 @@ const { title, description = 'Tu sitio we de libros de La Pedriza' } =
           <div>
             <h3 class="text-xl font-bold mb-4">Síguenos en Instagram</h3>
             <div class="Flex space-x-4">
+              <a
+                href="https://www.instagram.com/danisanzfoto/"
+                class="text-gray-300">danisanzfoto</a
+              >
               <a
                 href="http://instagram.com/fotojulioserrano"
                 class="text-gray-300">fotojulioserrano</a

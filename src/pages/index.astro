@@ -1,11 +1,11 @@
 ---
-import Layout from '../layouts/Layout.astro'
-import CardInfo from '../components/CardInfo.astro'
-import { getPageInfo, getPosts } from '../lib/wp'
-import type { Post } from '../types/post'
+import Layout from '../layouts/Layout.astro';
+import CardInfo from '../components/CardInfo.astro';
+import { getPageInfo, getPosts } from '../lib/wp';
+import type { Post } from '../types/post';
 
-const { title, content } = await getPageInfo('inicio')
-const posts = await getPosts({ perPage: 3 })
+const { title, content } = await getPageInfo('inicio');
+const posts = await getPosts({ perPage: 3 });
 ---
 
 <Layout title="Libros de La Pedriza">
@@ -15,7 +15,8 @@ const posts = await getPosts({ perPage: 3 })
       <h1 class="text-5xl font-bold mb-6">
         {title}
       </h1>
-      <p class="text-xl max-w-2xl mx-auto" set:html={content} />
+      <!-- <p class="text-xl max-w-2xl mx-auto" set:html={content} /> -->
+      <p>Selección de los mejores libros publicados sobre La Pedriza</p>
     </div>
   </section>
   <section class="container mx-auto px-4 py-12">
