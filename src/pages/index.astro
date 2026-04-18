@@ -5,7 +5,7 @@ import { getPageInfo, getPosts } from '../lib/wp';
 import type { Post } from '../types/post';
 
 const { title, content } = await getPageInfo('inicio');
-const posts = await getPosts({ perPage: 3 });
+const posts = await getPosts({ perPage: 10 });
 ---
 
 <Layout title="Libros de La Pedriza">
@@ -20,9 +20,7 @@ const posts = await getPosts({ perPage: 3 });
     </div>
   </section>
   <section class="container mx-auto px-4 py-12">
-    <h2 class="text-3xl font-bold mb-8 text-center">
-      Últimos libros seleccionados
-    </h2>
+    <h2 class="text-3xl font-bold mb-8 text-center">Libros seleccionados</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {posts.map((post: Post) => <CardInfo {...post} />)}
     </div>
